@@ -1,4 +1,1 @@
-pkgs: {
-  sshot = import ./sshot pkgs;
-  retag = import ./retag pkgs;
-}
+pkgs: { sshot = import ./sshot pkgs; }

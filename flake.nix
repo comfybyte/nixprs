@@ -1,12 +1,9 @@
 {
-  description = "Some packages and small scripts used on my hosts.";
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
-  };
-  outputs = { nixpkgs, flake-utils, ... }:
-    let inherit (flake-utils.lib) system eachSystem;
-    in eachSystem [ system.x86_64-linux ] (system:
-      let pkgs = import nixpkgs { inherit system; };
-      in { packages = (import ./packages.nix) pkgs; });
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+  outputs = { nixpkgs, ... }:
+    let
+      systems = [ "x86_64-linux" "aarch64-linux" ];
+      eachSystem = fn:
+        nixpkgs.lib.genAttrs systems (s: fn nixpkgs.legacyPackages.${s});
+    in { packages = eachSystem (pkgs: import ./packages.nix pkgs); };
 }
