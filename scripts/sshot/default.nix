@@ -1,6 +1,6 @@
-{ pkgs, writeShellApplication, ... }:
+{ writeShellApplication, coreutils, libnotify, grim, slurp, ... }:
 writeShellApplication {
   name = "sshot";
   text = builtins.readFile ./run.sh;
-  runtimeInputs = with pkgs; [ coreutils libnotify grim slurp ];
+  runtimeInputs = [ coreutils libnotify grim slurp ];
 }
