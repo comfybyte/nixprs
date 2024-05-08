@@ -5,5 +5,5 @@
       systems = [ "x86_64-linux" "aarch64-linux" ];
       eachSystem = fn:
         nixpkgs.lib.genAttrs systems (s: fn nixpkgs.legacyPackages.${s});
-    in { packages = eachSystem (pkgs: import ./packages.nix pkgs); };
+    in { packages = eachSystem (pkgs: import ./packages pkgs); };
 }

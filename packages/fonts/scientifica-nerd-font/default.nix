@@ -10,7 +10,7 @@ stdenvNoCC.mkDerivation (final: {
   };
   nativeBuildInputs = [ nerd-font-patcher ];
   buildPhase = ''
-    mkdir -p "$out"/share/fonts/truetype
+    mkdir -p $out/share/fonts/truetype
     for file in $src/ttf/*.ttf; do 
       nerd-font-patcher -c -q --out "$out"/share/fonts/truetype $file;
     done;
