@@ -13,7 +13,7 @@ stdenvNoCC.mkDerivation (final:
     nativeBuildInputs = [ nerd-font-patcher ];
     buildPhase = ''
       mkdir -p $out/share/fonts/truetype
-      nerd-font-patcher -c -q --out $out/share/fonts/truetype $src/fonts/ttf/CutiveMono-Regular.ttf
+      nerd-font-patcher -c -q --out $out/share/fonts/truetype $src/fonts/ttf/CutiveMono-Regular.ttf 2> /dev/null
     '';
     meta = let inherit (lib) licenses platforms;
     in {

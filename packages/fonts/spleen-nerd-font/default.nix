@@ -16,7 +16,7 @@ stdenvNoCC.mkDerivation rec {
 
     mkdir -p $out/share/fonts/opentype
     for file in $src/*.otf; do 
-      nerd-font-patcher -c -q --out "$out"/share/fonts/opentype $file;
+      nerd-font-patcher -c -q --out "$out"/share/fonts/opentype $file 2> /dev/null;
     done;
 
     runHook postInstall
