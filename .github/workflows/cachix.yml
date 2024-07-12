@@ -14,4 +14,4 @@ jobs:
       with:
         name: metalheart
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - run: nix build
+    - run: nix run github:Mic92/nix-fast-build -- --flake ".#packages" --no-nom --skip-cached
