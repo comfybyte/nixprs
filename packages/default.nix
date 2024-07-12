@@ -1,1 +1,1 @@
-pkgs: (import ./scripts pkgs) // (import ./fonts pkgs)
+pkgs: (import ./fonts pkgs)
